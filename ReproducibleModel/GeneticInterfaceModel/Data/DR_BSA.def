@@ -1,0 +1,28 @@
+DESCRIPTION
+"Dose response data of BSA-fluorescein concentration [nM]"
+
+
+PREDICTOR-DOSERESPONSE init_BSA
+t               T   h     time	0	22
+
+INPUTS
+
+OBSERVABLES
+SEAP       C   Intensity   conc.   0	0   " scale_SEAP * SEAP_State + offset_SEAP "
+
+ERRORS
+// Set seap error to data std
+SEAP    " 2.369989967 "
+
+
+CONDITIONS
+// Fix Scale of SEAP to maximal measurement value of 39.84 
+scale_SEAP               " 39.84763656 "
+
+// Set offset to mean of datapoint with concentration 0
+offset_SEAP              " 2.53068828 "
+
+
+
+RANDOM
+

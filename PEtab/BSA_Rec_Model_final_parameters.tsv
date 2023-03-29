@@ -1,0 +1,5 @@
+parameterId	parameterName	parameterScale	lowerBound	upperBound	nominalValue	estimate
+init_Rec	init_Rec	log10	1e-05	1000	0.0037906448138561	1
+k_bind	k_bind	log10	1e-05	1000	0.000767786063888168	1
+k_bind_complex	k_bind_complex	log10	1e-05	1000	1000	0
+k_express	k_express	log10	1e-05	1000	26.3453904800109	1

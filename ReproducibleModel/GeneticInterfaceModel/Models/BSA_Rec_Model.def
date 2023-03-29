@@ -1,0 +1,40 @@
+DESCRIPTION
+" Model for genetic interface "
+" Double Receptor Binding "
+
+PREDICTOR
+t               T   h     time	0	22
+
+COMPARTMENTS
+
+STATES
+Rec                       C   nM          conc.   cyt     1
+BSA                       C   nM          conc.   ext     1
+ 
+Rec_BSA             	  C   nM          conc.   cyt     1
+Rec_Rec_BSA               C   nM          conc.   cyt     1
+
+SEAP_State                C   au          conc.   cyt     1
+
+INPUTS
+
+REACTIONS
+
+Rec + BSA         -> Rec_BSA                  CUSTOM   " k_bind * Rec * BSA"
+Rec + Rec_BSA       -> Rec_Rec_BSA            CUSTOM   " k_bind_complex * Rec * Rec_BSA"
+                    -> SEAP_State             CUSTOM   " k_express * Rec_Rec_BSA "
+
+DERIVED
+
+OBSERVABLES
+SEAP       C   Intensity   conc.   0	0   " scale_SEAP * SEAP_State + offset_SEAP "
+
+ERRORS
+
+SEAP      " sd_SEAP "
+
+CONDITIONS
+init_Rec_BSA             " 0 "
+init_Rec_Rec_BSA         " 0 "
+
+init_SEAP_State          " 0 "

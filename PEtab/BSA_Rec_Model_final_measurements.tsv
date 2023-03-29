@@ -1,0 +1,25 @@
+observableId	simulationConditionId	measurement	time	observableParameters	noiseParameters	noiseDistribution
+SEAP_DR_BSA	model1_data1	15.5006804646024	20			normal
+SEAP_DR_BSA	model1_data1	13.5451868919611	20			normal
+SEAP_DR_BSA	model1_data1	16.4712520548684	20			normal
+SEAP_DR_BSA	model1_data1	18.3153785000135	20			normal
+SEAP_DR_BSA	model1_data2	25.640142021721	20			normal
+SEAP_DR_BSA	model1_data2	23.4722222222222	20			normal
+SEAP_DR_BSA	model1_data2	22.800583447867	20			normal
+SEAP_DR_BSA	model1_data2	31.5064206214461	20			normal
+SEAP_DR_BSA	model1_data3	34.3696270245506	20			normal
+SEAP_DR_BSA	model1_data3	36.5870657827364	20			normal
+SEAP_DR_BSA	model1_data3	39.2750357075484	20			normal
+SEAP_DR_BSA	model1_data3	34.6697725496537	20			normal
+SEAP_DR_BSA	model1_data4	31.2131471150996	20			normal
+SEAP_DR_BSA	model1_data4	29.2188468483036	20			normal
+SEAP_DR_BSA	model1_data4	24.1113199665831	20			normal
+SEAP_DR_BSA	model1_data4	28.9983358934972	20			normal
+SEAP_DR_BSA	model1_data5	16.7499730509068	20			normal
+SEAP_DR_BSA	model1_data5	21.0813660495324	20			normal
+SEAP_DR_BSA	model1_data5	19.7328334276552	20			normal
+SEAP_DR_BSA	model1_data5	20.3226143315277	20			normal
+SEAP_DR_BSA	model1_data6	35.4046743202091	20			normal
+SEAP_DR_BSA	model1_data6	34.2776632441318	20			normal
+SEAP_DR_BSA	model1_data6	39.8476365645296	20			normal
+SEAP_DR_BSA	model1_data6	33.8778734470585	20			normal

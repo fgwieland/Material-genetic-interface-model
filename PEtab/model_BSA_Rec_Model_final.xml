@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model metaid="arFramework3" id="BSA_Rec_Model">
+    <listOfUnitDefinitions>
+      <unitDefinition id="time" name="time">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="nM" name="nM">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="0" multiplier="1e-009"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="default" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Rec" name="Rec" compartment="default" initialConcentration="1" substanceUnits="nM" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="BSA" name="BSA" compartment="default" initialConcentration="1" substanceUnits="nM" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Rec_BSA" name="Rec_BSA" compartment="default" initialConcentration="1" substanceUnits="nM" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Rec_Rec_BSA" name="Rec_Rec_BSA" compartment="default" initialConcentration="1" substanceUnits="nM" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="SEAP_State" name="SEAP_State" compartment="default" initialConcentration="1" substanceUnits="au" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="init_BSA" name="init_BSA" value="1" constant="false"/>
+      <parameter id="init_Rec" name="init_Rec" value="0.0037906448138561" constant="false"/>
+      <parameter id="k_bind" name="k_bind" value="0.000767786063888168" constant="true"/>
+      <parameter id="k_bind_complex" name="k_bind_complex" value="1000" constant="true"/>
+      <parameter id="k_express" name="k_express" value="26.3453904800109" constant="true"/>
+    </listOfParameters>
+    <listOfInitialAssignments>
+      <initialAssignment symbol="Rec">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> init_Rec </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="BSA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> init_BSA </ci>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="Rec_BSA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <cn type="integer"> 0 </cn>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="Rec_Rec_BSA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <cn type="integer"> 0 </cn>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="SEAP_State">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <cn type="integer"> 0 </cn>
+        </math>
+      </initialAssignment>
+    </listOfInitialAssignments>
+    <listOfReactions>
+      <reaction id="v1_v_0" name="v_0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Rec" stoichiometry="1"/>
+          <speciesReference species="BSA" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Rec_BSA" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> BSA </ci>
+              <ci> Rec </ci>
+              <ci> k_bind </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="v2_v_1" name="v_1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Rec" stoichiometry="1"/>
+          <speciesReference species="Rec_BSA" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Rec_Rec_BSA" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Rec </ci>
+              <ci> Rec_BSA </ci>
+              <ci> k_bind_complex </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="v3_v_2" name="v_2" reversible="false">
+        <listOfProducts>
+          <speciesReference species="SEAP_State" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Rec_Rec_BSA"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Rec_Rec_BSA </ci>
+              <ci> k_express </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

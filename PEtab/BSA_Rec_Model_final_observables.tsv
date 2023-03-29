@@ -1,0 +1,2 @@
+observableId	observableName	observableFormula	observableTransformation	noiseFormula	noiseDistribution
+SEAP_DR_BSA	SEAP	39.84763656*SEAP_State + 2.53068828	lin	2.369989967	normal
